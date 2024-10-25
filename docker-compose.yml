@@ -1,0 +1,18 @@
+services:
+  jupyter-spark:
+    image: jupyter/all-spark-notebook
+    container_name: jupyter-spark
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/home/jovyan/work
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-spark
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: app
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
