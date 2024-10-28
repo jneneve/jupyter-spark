@@ -1,6 +1,6 @@
 services:
   jupyter-spark:
-    image: jupyter/all-spark-notebook
+    image: quay.io/jupyter/pyspark-notebook
     container_name: jupyter-spark
     ports:
       - "8888:8888"
